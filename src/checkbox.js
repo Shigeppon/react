@@ -1,7 +1,10 @@
 var MainComponent = React.createClass({
+  handleChange: function() {
+    console.log("parent method");
+  },
   render: function() {
     return (
-      <MyForm />
+      <MyForm onChange={this.handleChange}/>
     );
   }
 });
@@ -22,6 +25,7 @@ var MyForm = React.createClass({
     this.setState({
       checked: e.target.checked
     });
+    this.props.onChange();
   },
   render: function() {
     return (
